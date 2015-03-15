@@ -18,6 +18,9 @@ public class HelloWorldServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ArrayList<String> nameList = new ArrayList<String>();
+        ArrayList<Person> nameLis = new ArrayList<Person>();
+        Person per=new Person();
+
         //Connect dtabase
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -67,13 +70,15 @@ public class HelloWorldServlet extends HttpServlet {
             while (rs.next()) {
                 for (int i = 1; i <= columns; ++i) {
                     nameList.add(rs.getString(i));
+                    per.setPerson(rs.getString(i),1990+i);
+                    nameLis.add(per);
 
                 }
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        req.setAttribute("nameLis", nameLis);
         req.setAttribute("nameList", nameList);
         req.getRequestDispatcher("index.jsp").forward(req, resp);
 

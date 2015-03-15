@@ -12,10 +12,10 @@ public class Person {
         age = age1;
     }
 
-    public String getPersonName() {
+    public String getName() {
         return name;
     }
-    public int getPersonAge() {
+    public int getAge() {
         return age;
     }
 

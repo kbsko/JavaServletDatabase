@@ -18,11 +18,10 @@
         <caption>My First Table</caption>
         <tr><th>Names</th>
             <th>Ages</th></tr>
-        <c:forEach var="nameOption" items="${requestScope.nameList}">
-            <%--    <c:set var="ageTotal" value="${nameOption.G}" />
-                <c:set var="nameTotal" value="${nameOption.name}" /> --%>
-                <tr><td><c:out value="${nameOption}"/></td>
-                    <td><c:out value="${1990}"/></td></tr>
+        <c:forEach var="nameOption" items="${requestScope.nameLis}">
+
+                <tr><td><c:out value="${nameOption.getName()}"/></td>
+                    <td><c:out value="${nameOption.getAge()}"/></td></tr>
             </c:forEach>
         </table>
 

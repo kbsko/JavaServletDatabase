@@ -69,7 +69,7 @@ public class HelloWorldServlet extends HttpServlet {
         try {           // output data
             while (rs.next()) {
                 for (int i = 1; i <= columns; ++i) {
-                    nameList.add(rs.getString(i));
+                    per=new Person();
                     per.setPerson(rs.getString(i),1990+i);
                     nameLis.add(per);
 
